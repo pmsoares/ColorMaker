@@ -12,7 +12,7 @@
 
     <Grid x:Name="Container" BackgroundColor="Black">
         <Frame Margin="10,0,10,0" VerticalOptions="Center">
-            <StackLayout Spacing="15" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
                 <Label
                     FontAttributes="Bold"
                     FontSize="Large"
@@ -23,35 +23,50 @@
                     x:Name="sldRed"
                     MaximumTrackColor="{StaticResource Tertiary}"
                     MinimumTrackColor="{StaticResource Secondary}"
-                    ThumbColor="{StaticResource Primary}" />
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
 
                 <Label Text="Green Value:" />
                 <Slider
                     x:Name="sldGreen"
                     MaximumTrackColor="{StaticResource Tertiary}"
                     MinimumTrackColor="{StaticResource Secondary}"
-                    ThumbColor="{StaticResource Primary}" />
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
 
                 <Label Text="Blue Value:" />
                 <Slider
                     x:Name="sldBlue"
                     MaximumTrackColor="{StaticResource Tertiary}"
                     MinimumTrackColor="{StaticResource Secondary}"
-                    ThumbColor="{StaticResource Primary}" />
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
 
                 <Frame
                     BorderColor="{StaticResource Primary}"
                     CornerRadius="25"
                     HorizontalOptions="Center">
-                    <StackLayout>
+                    <HorizontalStackLayout>
                         <Label
                             x:Name="lblHex"
-                            HorizontalTextAlignment="Center"
+                            HorizontalTextAlignment="End"
                             Text="HEX Value: #000000"
                             VerticalOptions="Center" />
-                    </StackLayout>
+                        <ImageButton
+                            Margin="10,0,0,0"
+                            HeightRequest="25"
+                            Source="copy.svg"
+                            VerticalOptions="Center"
+                            WidthRequest="25"
+                            Clicked="ImageButton_Clicked" />
+                    </HorizontalStackLayout>
                 </Frame>
-            </StackLayout>
+                <Button
+                    x:Name="btnRandom"
+                    BackgroundColor="{StaticResource Primary}"
+                    Clicked="btnRandom_Clicked"
+                    Text="Generate Random Color" />
+            </VerticalStackLayout>
         </Frame>
     </Grid>
 
